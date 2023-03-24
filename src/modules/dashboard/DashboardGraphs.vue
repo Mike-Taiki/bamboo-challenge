@@ -1,5 +1,5 @@
 <template>
-  <PddTable :chartData="chartData" />
+  <PddTable v-if="Object.keys(chartData).length" :chartData="chartData" />
 </template>
 <script>
 import PddTable from "./PddTable.vue";
