@@ -1,12 +1,12 @@
 <template>
-  <CardItem />
+  <DashboardCards />
 </template>
 <script>
-import CardItem from "../../components/CardItem.vue";
+import DashboardCards from "./DashboardCards.vue";
 export default {
   name: "DashboardView",
   components: {
-    CardItem,
+    DashboardCards,
   },
 };
 </script>
