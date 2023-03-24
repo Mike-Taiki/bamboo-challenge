@@ -14,12 +14,12 @@ const router = new VueRouter({
       redirect: "/home",
       children: [
         {
-          path: "/home",
+          path: "home",
           name: "home",
           component: () => import("../modules/home/HomeView.vue"),
         },
         {
-          path: "/dashboard",
+          path: "dashboard",
           name: "dashboard",
           component: () => import("../modules/dashboard/DashboardView.vue"),
         },
