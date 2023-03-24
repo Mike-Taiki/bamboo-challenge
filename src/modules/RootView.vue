@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <SideBar @close="toggleMenu" :isOpen="isMenuOpen" />
-    <router-view :class="isMenuOpen ? 'open' : 'closed'" />
+    <router-view :class="isMenuOpen ? 'closed' : 'open'" />
   </div>
 </template>
 

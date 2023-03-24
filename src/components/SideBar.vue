@@ -6,7 +6,9 @@
     </label>
 
     <ul class="menu__box">
-      <li><router-link class="menu__item" to="/home">Home</router-link></li>
+      <li>
+        <router-link class="menu__item" to="/home">Home</router-link>
+      </li>
       <li>
         <router-link class="menu__item" to="/dashboard">Dashboard</router-link>
       </li>
@@ -25,6 +27,9 @@ export default {
   methods: {
     close() {
       this.$emit("close");
+    },
+    preventBubbling(event) {
+      event.preventDefault();
     },
   },
 };
