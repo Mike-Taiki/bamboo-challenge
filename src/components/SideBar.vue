@@ -1,13 +1,8 @@
-<script setup>
-import { RouterLink } from "vue-router";
-
-function close() {
-  alert("closed");
-}
-</script>
-
 <template>
-  <aside class="sidebar">
+  <aside
+    class="sidebar"
+    :class="isOpen ? 'sidebar--animation-close' : 'sidebar--animation-open'"
+  >
     <section class="sidebar-heading">
       <section class="sidebar-heading__title">Menu</section>
       <button class="sidebar-heading__button" @click="close">x</button>
@@ -15,7 +10,9 @@ function close() {
     <nav class="navbar-menu">
       <ul class="navbar-list">
         <li class="navbar-list-item">
-          <router-link to="/" class="navbar-list-item__link">Home</router-link>
+          <router-link to="/home" a class="navbar-list-item__link"
+            >Home</router-link
+          >
         </li>
         <li class="navbar-list-item">
           <router-link to="/dashboard" class="navbar-list-item__link"
@@ -26,12 +23,63 @@ function close() {
     </nav>
   </aside>
 </template>
+<script>
+export default {
+  name: "SideBar",
+  props: {
+    isOpen: {
+      required: true,
+      type: Boolean,
+    },
+  },
+  methods: {
+    close() {
+      this.$emit("close");
+    },
+  },
+};
+</script>
 
 <style scoped>
+@keyframes close {
+  from {
+    width: -300px;
+  }
+
+  to {
+    width: 0;
+    display: none;
+  }
+}
+
+@keyframes open {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 300px;
+  }
+}
 .sidebar {
   height: 100vh;
   background-color: var(--soft-gray);
   font-family: Verdana, sans-serif;
+  position: fixed;
+  top: 0;
+  width: 300px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.effect {
+  transition: margin 0.4s;
+}
+.sidebar--animation-open {
+  margin-left: 0;
+}
+
+.sidebar--animation-close {
+  margin-left: -300px;
 }
 
 .sidebar-heading {

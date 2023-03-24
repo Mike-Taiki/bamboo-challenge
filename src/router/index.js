@@ -1,6 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../modules/home/HomeView.vue";
+import RootView from "../modules/RootView.vue";
 
 Vue.use(VueRouter);
 
@@ -10,17 +10,21 @@ const router = new VueRouter({
   routes: [
     {
       path: "/",
-      name: "home",
-      component: HomeView,
+      component: RootView,
+      redirect: "/home",
+      children: [
+        {
+          path: "/home",
+          name: "home",
+          component: () => import("../modules/home/HomeView.vue"),
+        },
+        {
+          path: "/dashboard",
+          name: "dashboard",
+          component: () => import("../modules/dashboard/DashboardView.vue"),
+        },
+      ],
     },
-    // {
-    //   path: "/about",
-    //   name: "about",
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import("../views/AboutView.vue"),
-    // },
   ],
 });
 
