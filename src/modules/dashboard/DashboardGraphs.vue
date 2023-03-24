@@ -1,12 +1,12 @@
 <template>
-  <UnderOverChart />
+  <PddChart />
 </template>
 <script>
-import UnderOverChart from "./UnderOverChart.vue";
+import PddChart from "./PddChart.vue";
 export default {
   name: "DashboardGraphs",
   components: {
-    UnderOverChart,
+    PddChart,
   },
 };
 </script>
