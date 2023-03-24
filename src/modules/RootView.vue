@@ -31,6 +31,6 @@ export default {
 }
 
 .open {
-  margin-left: 175px;
+  margin-left: 315px;
 }
 </style>
