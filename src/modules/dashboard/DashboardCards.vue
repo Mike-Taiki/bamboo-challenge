@@ -1,27 +1,27 @@
 <template>
   <div v-if="Object.keys(chartData).length" class="wrapper">
-    <CardItem
+    <DashboardCard
       :title="`Saldo Devedor`"
       :value="chartData.inadimplency.summary[0].vl_saldo_devedor"
     />
-    <CardItem
+    <DashboardCard
       :title="`Vencidos`"
       :value="chartData.inadimplency.summary[0].vl_total_inadimplencia"
     />
-    <CardItem
+    <DashboardCard
       title="Vencidos até 90 dias"
       subtitle="(% saldo devedor)"
       :value="chartData.inadimplency.summary[0].vencidosAte90"
     />
 
-    <CardItem
+    <DashboardCard
       title="Vencidos até 90 dias"
       subtitle="(% saldo devedor)"
       is-percentage
       :value="chartData.inadimplency.summary[0].vencidosAcima90"
     />
 
-    <CardItem
+    <DashboardCard
       title="Maior % Vencidos acima 90 dias"
       subtitle="(% Saldo Devedor) (LTM)"
       is-percentage
@@ -32,13 +32,13 @@
   </div>
 </template>
 <script>
-import CardItem from "./CardItem.vue";
+import DashboardCard from "./DashboardCard.vue";
 import { api } from "../../services/api";
 
 export default {
   name: "DashboardCards",
   components: {
-    CardItem,
+    DashboardCard,
   },
   data() {
     return {
