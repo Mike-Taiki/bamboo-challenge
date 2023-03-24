@@ -33,8 +33,8 @@
   </Card>
 </template>
 <script>
-import Card from "../../components/Card.vue";
-import { getBrazilianReal } from "../../helpers/currencyFormater";
+import Card from "../../../../components/Card.vue";
+import { getBrazilianReal } from "../../../../helpers/currencyFormater";
 export default {
   name: "PddTable",
   components: { Card },

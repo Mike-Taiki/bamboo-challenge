@@ -1,19 +1,19 @@
 <template>
-  <CardAbstract>
+  <Card>
     <h1 class="card__title">{{ title }}</h1>
     <h1 v-if="subtitle" class="card__subtitle">{{ subtitle }}</h1>
     <p class="card__value">
       {{ isPercentage ? getPercentage(value) : getBrazilianReal(value) }}
     </p>
-  </CardAbstract>
+  </Card>
 </template>
 <script>
-import CardAbstract from "../../components/Card.vue";
-import { getBrazilianReal } from "../../helpers/currencyFormater";
+import Card from "../../../../components/Card.vue";
+import { getBrazilianReal } from "../../../../helpers/currencyFormater";
 export default {
   name: "DashboardCard",
   components: {
-    CardAbstract,
+    Card,
   },
   props: {
     title: {
