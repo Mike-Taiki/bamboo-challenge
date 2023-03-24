@@ -21,11 +21,15 @@
           >
             <td class="graph-tbody__item">{{ item.ds_nivel_risco }}</td>
             <td class="graph-tbody__item">{{ item.ds_faixa }}</td>
-            <td class="graph-tbody__item">{{ item.vl_faixa }}</td>
             <td class="graph-tbody__item">
-              {{ item.vl_percentual_faixa_pdd }}
+              {{ getBrazilianReal(item.vl_faixa) }}
             </td>
-            <td class="graph-tbody__item">{{ item.vl_total_pdd }}</td>
+            <td class="graph-tbody__item">
+              {{ item.vl_percentual_faixa_pdd }}%
+            </td>
+            <td class="graph-tbody__item">
+              {{ getBrazilianReal(item.vl_total_pdd) }}
+            </td>
           </tr>
         </tbody>
       </table>
@@ -35,6 +39,7 @@
 <script>
 import Card from "../../components/Card.vue";
 import { chartData } from "../../services/api";
+import { getBrazilianReal } from "../../helpers/currencyFormater";
 export default {
   name: "PddChart",
   components: { Card },
@@ -42,6 +47,11 @@ export default {
     return {
       chartData,
     };
+  },
+  methods: {
+    getBrazilianReal(val) {
+      return getBrazilianReal(val).replace("R$", "");
+    },
   },
 };
 </script>

@@ -9,6 +9,7 @@
 </template>
 <script>
 import CardAbstract from "../../components/Card.vue";
+import { getBrazilianReal } from "../../helpers/currencyFormater";
 export default {
   name: "DashboardCard",
   components: {
@@ -34,10 +35,7 @@ export default {
   },
   methods: {
     getBrazilianReal(val) {
-      const brNumber = parseFloat(val).toLocaleString("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      });
+      const brNumber = getBrazilianReal(val);
       return this.getNumberGreatness(brNumber);
     },
     getNumberGreatness(val) {
