@@ -27,10 +27,10 @@ export default {
 
 <style scoped>
 .closed {
-  margin-left: 0;
+  margin-left: 30px;
 }
 
 .open {
-  margin-left: 175px;
+  margin-left: 315px;
 }
 </style>
