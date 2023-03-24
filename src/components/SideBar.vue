@@ -99,7 +99,7 @@ export default {
   padding: 12px 24px;
   color: #333;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: var(--md);
   font-weight: 600;
   text-decoration: none;
   transition-duration: 0.25s;

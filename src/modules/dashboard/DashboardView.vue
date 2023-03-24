@@ -1,12 +1,32 @@
 <template>
-  <CardItem />
+  <div>
+    <DashboardCards :chartData="chartData" />
+    <DashboardGraphs :chartData="chartData" />
+  </div>
 </template>
 <script>
-import CardItem from "../../components/CardItem.vue";
+import DashboardCards from "./DashboardCards.vue";
+import DashboardGraphs from "./DashboardGraphs.vue";
+import { api } from "../../services/api";
+
 export default {
   name: "DashboardView",
   components: {
-    CardItem,
+    DashboardCards,
+    DashboardGraphs,
+  },
+  data() {
+    return {
+      chartData: {},
+    };
+  },
+  created() {
+    this.getData();
+  },
+  methods: {
+    getData() {
+      api.get().then((data) => (this.chartData = data));
+    },
   },
 };
 </script>
