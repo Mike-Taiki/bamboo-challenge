@@ -1,12 +1,18 @@
 <template>
-  <PddChart />
+  <PddTable :chartData="chartData" />
 </template>
 <script>
-import PddChart from "./PddChart.vue";
+import PddTable from "./PddTable.vue";
 export default {
   name: "DashboardGraphs",
   components: {
-    PddChart,
+    PddTable,
+  },
+  props: {
+    chartData: {
+      required: true,
+      type: Object,
+    },
   },
 };
 </script>

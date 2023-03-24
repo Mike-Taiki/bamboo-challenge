@@ -33,24 +33,16 @@
 </template>
 <script>
 import DashboardCard from "./DashboardCard.vue";
-import { api } from "../../services/api";
 
 export default {
   name: "DashboardCards",
   components: {
     DashboardCard,
   },
-  data() {
-    return {
-      chartData: {},
-    };
-  },
-  created() {
-    this.getData();
-  },
-  methods: {
-    getData() {
-      api.get().then((data) => (this.chartData = data));
+  props: {
+    chartData: {
+      required: true,
+      type: Object,
     },
   },
 };

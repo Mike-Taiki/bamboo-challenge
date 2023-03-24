@@ -59,7 +59,7 @@ export default {
 <style scoped>
 .card__title {
   padding-bottom: 20px;
-  font-size: 12px;
+  font-size: var(--xs);
   color: var(--dark-gray);
   line-height: 15px;
 }
@@ -74,6 +74,6 @@ export default {
   border-top: 2px solid var(--medium-gray);
   padding-top: 15px;
   font-weight: bolder;
-  font-size: 24px;
+  font-size: var(--lg);
 }
 </style>
