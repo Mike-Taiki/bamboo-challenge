@@ -59,6 +59,7 @@ export default {
             label: "Range",
             backgroundColor: "#4fa700",
             data: this.getValueLines(),
+            tension: 0.6,
           },
         ],
       },
