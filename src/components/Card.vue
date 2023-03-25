@@ -18,5 +18,8 @@ export default {
   min-width: 250px;
   margin-right: 15px;
   margin-bottom: 15px;
+  -webkit-box-shadow: 1px 0px 12px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 0px 12px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 0px 12px -6px rgba(0, 0, 0, 0.75);
 }
 </style>
