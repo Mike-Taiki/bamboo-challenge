@@ -27,6 +27,7 @@ export default {
 
 <style scoped>
 .container-view {
-  margin: auto auto auto 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 </style>
