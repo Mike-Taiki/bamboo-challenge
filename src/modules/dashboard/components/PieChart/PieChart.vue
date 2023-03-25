@@ -44,6 +44,7 @@ export default {
         ],
       },
       options: {
+        responsive: true,
         maintainAspectRatio: false,
         plugins: {
           legend: {
@@ -71,13 +72,8 @@ export default {
 <style scoped>
 .card {
   max-width: 600px;
-  height: 300px;
+  height: 200px;
 }
-
-.chart {
-  width: 100%;
-}
-
 .card__title {
   font-size: var(--sm);
 }
