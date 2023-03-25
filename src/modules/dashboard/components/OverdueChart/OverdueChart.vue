@@ -67,6 +67,12 @@ export default {
               footer: (tooltipItems) => {
                 const diff =
                   tooltipItems[0].parsed.y - tooltipItems[0].parsed.x;
+                if (
+                  tooltipItems[0].dataIndex >=
+                  this.chartData.inadimplency.overdueChart.length
+                ) {
+                  return "Total: " + getBrazilianReal(diff);
+                }
                 return "Diferença: " + getBrazilianReal(diff);
               },
             },
@@ -82,13 +88,19 @@ export default {
   },
   methods: {
     getLabels() {
-      return this.chartData.inadimplency.overdueChart.map((el) => el.label);
+      const labels = this.chartData.inadimplency.overdueChart.map(
+        (el) => el.label
+      );
+      labels.push("Total");
+      return labels;
     },
     getValues() {
       const data = this.chartData.inadimplency.overdueChart.map((el) => [
         el.initValue,
         el.endValue,
       ]);
+      const lastValue = data[data.length - 1][1];
+      data.push([0, lastValue]);
       return data;
     },
   },
