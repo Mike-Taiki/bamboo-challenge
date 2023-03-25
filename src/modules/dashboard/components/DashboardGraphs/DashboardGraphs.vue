@@ -1,8 +1,8 @@
 <template>
-  <div v-if="Object.keys(chartData).length">
+  <div v-if="Object.keys(chartData).length" class="graphs">
     <OverdueChart :chartData="chartData" />
-    <UnderOverChart :chartData="chartData" />
     <PieChart :chartData="chartData" />
+    <UnderOverChart :chartData="chartData" />
     <PddTable :chartData="chartData" />
   </div>
 </template>
@@ -27,4 +27,16 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.graphs {
+  display: grid;
+  grid-template-columns: 600px 600px;
+}
+
+@media (max-width: 1199px) {
+  .graphs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+</style>

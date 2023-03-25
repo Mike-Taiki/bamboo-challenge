@@ -52,9 +52,12 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   max-width: 600px;
+  min-width: 300px;
+  height: 200px;
+  overflow: auto;
 }
 
 .card__title {
@@ -82,7 +85,7 @@ export default {
   text-align: center;
   font-size: var(--sm);
   color: var(--gray);
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .thead__item:nth-child(1) {
