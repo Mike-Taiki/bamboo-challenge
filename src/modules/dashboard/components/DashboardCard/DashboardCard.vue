@@ -1,7 +1,7 @@
 <template>
   <Card>
     <h1 class="card__title">{{ title }}</h1>
-    <h1 v-if="subtitle" class="card__subtitle">{{ subtitle }}</h1>
+    <h2 v-if="subtitle" class="card__subtitle">{{ subtitle }}</h2>
     <p class="card__value">
       {{ isPercentage ? getPercentage(value) : getBrazilianReal(value) }}
     </p>

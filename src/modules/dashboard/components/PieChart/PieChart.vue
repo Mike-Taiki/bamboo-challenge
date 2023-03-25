@@ -1,9 +1,16 @@
 <template>
-  <Card class="card"><canvas id="acquisitions"></canvas></Card>
+  <Card class="card">
+    <h1 class="card__title">PDD por Faixa de Atraso</h1>
+    <h2 class="card__subtitle">Em %</h2>
+    <Pie class="chart" :data="data" :options="options" />
+  </Card>
 </template>
 <script>
 import Card from "../../../../components/Card.vue";
-import Chart from "chart.js/auto";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "vue-chartjs";
+ChartJS.register(ArcElement, Tooltip, Legend);
+
 export default {
   name: "PieChart",
   props: {
@@ -14,40 +21,68 @@ export default {
   },
   components: {
     Card,
+    Pie,
   },
-  created() {
-    this.buildGraph();
+  data() {
+    return {
+      data: {
+        labels: this.getLabels(),
+        datasets: [
+          {
+            label: "My First Dataset",
+            data: this.getData(),
+            backgroundColor: [
+              "#b4fb73",
+              "#cccccc",
+              "#a7ff57",
+              "#4fa700",
+              "#93fe32",
+              "#00d4ff",
+            ],
+            hoverOffset: 4,
+          },
+        ],
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: true,
+            position: "right",
+          },
+        },
+      },
+    };
   },
   methods: {
-    buildGraph() {
-      const data = [
-        { year: 2010, count: 10 },
-        { year: 2011, count: 20 },
-        { year: 2012, count: 15 },
-        { year: 2013, count: 25 },
-        { year: 2014, count: 22 },
-        { year: 2015, count: 30 },
-        { year: 2016, count: 28 },
-      ];
-
-      new Chart(document.getElementById("acquisitions"), {
-        type: "bar",
-        data: {
-          labels: data.map((row) => row.year),
-          datasets: [
-            {
-              label: "Acquisitions by year",
-              data: data.map((row) => row.count),
-            },
-          ],
-        },
-      });
+    getLabels() {
+      return this.chartData.inadimplency.pddByDelayRange.map(
+        (el) => (el = el.ds_pdd_faixa_atraso)
+      );
+    },
+    getData() {
+      return this.chartData.inadimplency.pddByDelayRange.map(
+        (el) => el.percent
+      );
     },
   },
 };
 </script>
 <style scoped>
 .card {
-  width: 800px;
+  max-width: 600px;
+  height: 300px;
+}
+
+.chart {
+  width: 100%;
+}
+
+.card__title {
+  font-size: var(--sm);
+}
+
+.card__subtitle {
+  font-size: var(--xs);
 }
 </style>
