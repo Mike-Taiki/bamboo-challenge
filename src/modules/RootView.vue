@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <SideBar @close="toggleMenu" :isOpen="isMenuOpen" />
-    <router-view :class="isMenuOpen ? 'closed' : 'open'" />
+    <router-view class="container-view" />
   </div>
 </template>
 
@@ -26,11 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.closed {
-  margin-left: 30px;
-}
-
-.open {
-  margin-left: 315px;
+.container-view {
+  margin: auto auto auto 30px;
 }
 </style>
