@@ -47,11 +47,18 @@ export default {
         labels: this.getLabels(),
         datasets: [
           {
+            type: "bar",
             label: "Range",
             backgroundColor: "#4fa700",
             data: this.getValues(),
             borderRadius: Number.MAX_VALUE,
             borderSkipped: false,
+          },
+          {
+            type: "line",
+            label: "Range",
+            backgroundColor: "#4fa700",
+            data: this.getValueLines(),
           },
         ],
       },
@@ -71,7 +78,7 @@ export default {
                   tooltipItems[0].dataIndex >=
                   this.chartData.inadimplency.overdueChart.length
                 ) {
-                  return "Total: " + getBrazilianReal(diff);
+                  return "Total: " + getBrazilianReal(tooltipItems[0].parsed.y);
                 }
                 return "Diferença: " + getBrazilianReal(diff);
               },
@@ -101,6 +108,14 @@ export default {
       ]);
       const lastValue = data[data.length - 1][1];
       data.push([0, lastValue]);
+      return data;
+    },
+    getValueLines() {
+      const data = this.chartData.inadimplency.overdueChart.map(
+        (el) => el.endValue
+      );
+      const lastValue = data[data.length - 1];
+      data.push(lastValue);
       return data;
     },
   },
