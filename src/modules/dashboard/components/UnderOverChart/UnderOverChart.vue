@@ -105,9 +105,11 @@ export default {
 }
 .card__title {
   font-size: var(--sm);
+  font-weight: bolder;
 }
 
 .card__subtitle {
   font-size: var(--xs);
+  color: var(--gray);
 }
 </style>
