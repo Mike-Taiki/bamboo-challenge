@@ -58,7 +58,7 @@ export default {
   methods: {
     getLabels() {
       return this.chartData.inadimplency.pddByDelayRange.map(
-        (el) => (el = el.ds_pdd_faixa_atraso)
+        (el) => el.ds_pdd_faixa_atraso
       );
     },
     getData() {
