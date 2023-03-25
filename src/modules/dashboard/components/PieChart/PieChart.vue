@@ -50,6 +50,9 @@ export default {
           legend: {
             display: true,
             position: "right",
+            labels: {
+              usePointStyle: true,
+            },
           },
         },
       },
@@ -58,7 +61,7 @@ export default {
   methods: {
     getLabels() {
       return this.chartData.inadimplency.pddByDelayRange.map(
-        (el) => (el = el.ds_pdd_faixa_atraso)
+        (el) => el.ds_pdd_faixa_atraso
       );
     },
     getData() {
@@ -72,6 +75,7 @@ export default {
 <style scoped>
 .card {
   max-width: 600px;
+  min-width: 300px;
   height: 200px;
 }
 .card__title {

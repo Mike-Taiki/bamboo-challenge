@@ -47,15 +47,17 @@ export default {
         datasets: [
           {
             label: "12 meses",
-            borderColor: "#bae755",
-            backgroundColor: "#a7ff57",
+            borderColor: "#4fa700",
+            backgroundColor: "#4fa700",
             data: this.getDataUnder(),
+            tension: 0.4,
           },
           {
             label: "24 meses",
             borderColor: "#003b45",
             backgroundColor: "#003b45",
             data: this.getDataOver(),
+            tension: 0.4,
           },
         ],
       },
@@ -87,10 +89,10 @@ export default {
       });
     },
     getDataUnder() {
-      return this.chartData.inadimplency.underOver.map((el) => (el = el.under));
+      return this.chartData.inadimplency.underOver.map((el) => el.under);
     },
     getDataOver() {
-      return this.chartData.inadimplency.underOver.map((el) => (el = el.over));
+      return this.chartData.inadimplency.underOver.map((el) => el.over);
     },
   },
 };
@@ -98,6 +100,7 @@ export default {
 <style scoped>
 .card {
   max-width: 600px;
+  min-width: 300px;
   height: 200px;
 }
 .card__title {
