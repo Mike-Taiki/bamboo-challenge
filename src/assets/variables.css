@@ -1,0 +1,17 @@
+:root {
+  --light-gray: #f1f1f1;
+  --light-gray: #f1f1f1;
+  --soft-gray: #f8f8f8;
+  --medium-gray: #ccc;
+  --dark-gray: #616161;
+  --white: #f2f2f2;
+  --gray: gray;
+}
+
+/** Font sizes*/
+:root {
+  --xs: 12px;
+  --sm: 14px;
+  --md: 20px;
+  --lg: 24px;
+}
