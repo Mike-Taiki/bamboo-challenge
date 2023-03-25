@@ -5,8 +5,8 @@
   </div>
 </template>
 <script>
-import DashboardCards from "./DashboardCards.vue";
-import DashboardGraphs from "./DashboardGraphs.vue";
+import DashboardCards from "./components/DashboardCards/DashboardCards.vue";
+import DashboardGraphs from "./components/DashboardGraphs/DashboardGraphs.vue";
 import { api } from "../../services/api";
 
 export default {

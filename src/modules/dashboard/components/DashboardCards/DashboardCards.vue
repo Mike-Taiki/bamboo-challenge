@@ -32,7 +32,7 @@
   </div>
 </template>
 <script>
-import DashboardCard from "./DashboardCard.vue";
+import DashboardCard from "../DashboardCard/DashboardCard.vue";
 
 export default {
   name: "DashboardCards",

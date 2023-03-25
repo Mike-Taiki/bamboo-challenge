@@ -1,7 +1,7 @@
 <template>
   <Card class="card">
     <h1 class="card__title">PDD</h1>
-    <span class="card__subtitle">Tabela</span>
+    <h2 class="card__subtitle">Tabela</h2>
     <table class="table">
       <thead class="thead">
         <tr>
@@ -33,8 +33,8 @@
   </Card>
 </template>
 <script>
-import Card from "../../components/Card.vue";
-import { getBrazilianReal } from "../../helpers/currencyFormater";
+import Card from "../../../../components/Card.vue";
+import { getBrazilianReal } from "../../../../helpers/currencyFormater";
 export default {
   name: "PddTable",
   components: { Card },
@@ -54,7 +54,7 @@ export default {
 
 <style>
 .card {
-  max-width: 750px;
+  max-width: 600px;
 }
 
 .card__title {
