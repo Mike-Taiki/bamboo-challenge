@@ -50,6 +50,9 @@ export default {
           legend: {
             display: true,
             position: "right",
+            labels: {
+              usePointStyle: true,
+            },
           },
         },
       },
