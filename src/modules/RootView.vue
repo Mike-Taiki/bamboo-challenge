@@ -30,4 +30,10 @@ export default {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@media (max-width: 1199px) {
+  .container-view {
+    margin-left: 30px;
+  }
+}
 </style>
